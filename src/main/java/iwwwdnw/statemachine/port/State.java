@@ -7,16 +7,24 @@ import java.util.List;
 public interface State {
 
 	boolean isSubStateOf(State state);
-	
+
 	boolean isSuperStateOf(State state);
 
 	public enum S implements State {
 
 		INIT_GAME, //
 
-		START_TURN, // 
-		
+		START_TURN, //
+
 		MAKE_A_TURN(START_TURN), //
+
+		WUERFELN(MAKE_A_TURN), //
+
+		STARTFELD_AUSWAEHLEN(MAKE_A_TURN), //
+		
+		AUGENSUMME_VERTEILEN(MAKE_A_TURN), //
+		
+		WISSENSDUELL(MAKE_A_TURN),
 
 		AWARD_CEREMMONY;
 
@@ -27,7 +35,7 @@ public interface State {
 		private S(State... subS) {
 			this.subStates = new ArrayList<>(Arrays.asList(subS));
 		}
-		
+
 		@Override
 		public boolean isSuperStateOf(State s) {
 			boolean result = (s == null) || (this == s); // self contained

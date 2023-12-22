@@ -15,7 +15,7 @@ public class TurnFacade implements TurnFactory, ITurn {
 
 	private TurnImpl turn;
 	private StateMachine stateMachine;
-	
+
 	@Override
 	public ITurn turn() {
 		if (this.turn == null) {
@@ -27,29 +27,26 @@ public class TurnFacade implements TurnFactory, ITurn {
 
 	@Override
 	public synchronized void sysop() {
-		if (this.stateMachine.getState().isSubStateOf( S.MAKE_A_TURN /* choose right state*/ ))
+		if (this.stateMachine.getState().isSubStateOf(S.MAKE_A_TURN /* choose right state */ ))
 			this.turn.sysop();
 	}
 
 	@Override
 	public void wurfeln() {
-		// TODO Auto-generated method stub
-		
+		if (this.stateMachine.getState().isSubStateOf(S.WUERFELN /* choose right state */ ))
+			this.turn.wurfeln();
 	}
 
 	@Override
 	public void augensummeVerteilen(Map<Figure, Field> neuePositionen) {
-		// TODO Auto-generated method stub
-		
+		if (this.stateMachine.getState().isSubStateOf(S.AUGENSUMME_VERTEILEN /* choose right state */ ))
+			this.turn.augensummeVerteilen(neuePositionen);
 	}
 
 	@Override
 	public void startfeldAuswaehlen(Field startfeld) {
-		// TODO Auto-generated method stub
-		
+		if (this.stateMachine.getState().isSubStateOf(S.STARTFELD_AUSWAEHLEN /* choose right state */ ))
+			this.turn.startfeldAuswaehlen(startfeld);
 	}
-	
-	
-	
 
 }
