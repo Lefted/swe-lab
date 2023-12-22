@@ -9,5 +9,5 @@ public interface Figure {
 	
 	String getColor();
 	
-
+	void aufStartfeldBewegen(Field startfeld);
 }

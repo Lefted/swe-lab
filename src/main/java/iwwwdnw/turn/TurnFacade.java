@@ -1,6 +1,10 @@
 package iwwwdnw.turn;
 
+import java.util.Map;
+
 import iwwwdnw.domain.DomainFactory;
+import iwwwdnw.domain.port.Field;
+import iwwwdnw.domain.port.Figure;
 import iwwwdnw.statemachine.StateMachineFactory;
 import iwwwdnw.statemachine.port.State.S;
 import iwwwdnw.statemachine.port.StateMachine;
@@ -25,6 +29,24 @@ public class TurnFacade implements TurnFactory, ITurn {
 	public synchronized void sysop() {
 		if (this.stateMachine.getState().isSubStateOf( S.MAKE_A_TURN /* choose right state*/ ))
 			this.turn.sysop();
+	}
+
+	@Override
+	public void wurfeln() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void augensummeVerteilen(Map<Figure, Field> neuePositionen) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void startfeldAuswaehlen(Field startfeld) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

@@ -22,4 +22,10 @@ public class FigureImpl  implements Figure{
 		return this.player.getColor();
 	}
 
+	@Override
+	public void aufStartfeldBewegen(Field startfeld) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
